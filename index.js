@@ -1,25 +1,29 @@
-require('dotenv').config();
 const Discord = require('discord.js');
-const bot = new Discord.Client();
-const TOKEN = process.env.TOKEN;
+const fs = require('fs');
+var bot = new Discord.Client();
 
-bot.login(TOKEN);
 
 bot.on('ready', () => {
-    console.info(`Logged in as ${bot.user.tag}!`);
+    console.info(`BOT IS READY`);
 });
 
 bot.on('message', msg => {
-    if (msg.content === 'ping') {
-        msg.reply('pong');
-        msg.channel.send('pong');
 
-    } else if (msg.content.startsWith('!kick')) {
-        if (msg.mentions.users.size) {
-            const taggedUser = msg.mentions.users.first();
-            msg.channel.send(`You wanted to kick: ${taggedUser.username}`);
-        } else {
-            msg.reply('Please tag a valid user!');
-        }
+    if (msg.content === 'ok') {
+        msg.channel.send('boomer');
     }
-});
+    else if (msg.content === 'Ok') {
+        msg.channel.send('boomer');
+    }
+    else if (msg.content === 'oK') {
+        msg.channel.send('boomer');
+    }
+    let port = process.env.PORT;
+    if (port == null || port == "") {
+      port = 8000;
+    }
+    app.listen(port);
+
+})
+
+bot.login('NjU5NDExNDUxMDQzMjUwMjI3.XgN7kg._tBxKHkXVE1gnNllbJY72HhleiM')
